@@ -42,8 +42,8 @@ public class TabLocalizer : ILocalizer
             throw new Exception("File is empty.");
 
         var headers = headerLine.Split('\t');
-        Languages.Clear();
-        Languages.AddRange(headers.Skip(1).ToList());
+        _languages.Clear();
+        _languages.AddRange(headers.Skip(1).ToList());
 
         var line = reader.ReadLine();
         while (line != null)
