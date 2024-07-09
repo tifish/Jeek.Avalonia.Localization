@@ -1,17 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <OutDir>bin</OutDir>
-    </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>bin</OutDir>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Avalonia string localization</Title>
+		<Authors>Tinyfish</Authors>
+		<Description>
+			Avalonia string localization support.
+			- Switch language at runtime.
+			- Customizable language file format and location.
+			- Simple interface, simple implementation.
+		</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/tifish/Jeek.Avalonia.Localization</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tifish/Jeek.Avalonia.Localization</RepositoryUrl>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<LangVersion>12</LangVersion>
+		<OutputPath>bin</OutputPath>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.0-rc2" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc2" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc2" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc2" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="11.1.0-rc2" />
+		<PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc2" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc2" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>
