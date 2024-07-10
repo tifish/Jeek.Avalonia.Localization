@@ -60,7 +60,7 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
     {
         _language = language;
 
-        if (_hasLoaded)
+        if (!_hasLoaded)
             Reload();
         else
             UpdateLanguageIndex();
