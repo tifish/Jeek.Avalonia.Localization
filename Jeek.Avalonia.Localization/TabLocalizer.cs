@@ -51,6 +51,16 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
             line = reader.ReadLine();
         }
 
+        _currentLanguageIndex = Languages.IndexOf(_language);
+        if (_currentLanguageIndex == -1)
+        {
+            _currentLanguageIndex = Languages.IndexOf(DefaultLanguage);
+            if (_currentLanguageIndex == -1)
+                throw new KeyNotFoundException(_language);
+
+            _language = DefaultLanguage;
+        }
+
         _hasLoaded = true;
     }
 

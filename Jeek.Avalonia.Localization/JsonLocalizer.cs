@@ -40,15 +40,15 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer, I
             _languages.Add(language);
         }
 
-        if (_language != "")
-        {
-            var languageFile = Path.Combine(_languageJsonDirectory, _language + ".json");
-            if (!_languages.Contains(_language))
-                throw new FileNotFoundException($"No language file ${languageFile}");
+        if (!_languages.Contains(_language))
+            _language = DefaultLanguage;
 
-            var json = File.ReadAllText(languageFile);
-            _languageStrings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
-        }
+        var languageFile = Path.Combine(_languageJsonDirectory, _language + ".json");
+        if (!File.Exists(languageFile))
+            throw new FileNotFoundException($"No language file ${languageFile}");
+
+        var json = File.ReadAllText(languageFile);
+        _languageStrings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
 
         _hasLoaded = true;
     }
