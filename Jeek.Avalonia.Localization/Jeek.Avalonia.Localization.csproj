@@ -20,6 +20,7 @@
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<LangVersion>12</LangVersion>
 		<OutputPath>bin</OutputPath>
+		<Version>1.1.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
