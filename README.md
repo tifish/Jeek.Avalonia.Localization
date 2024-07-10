@@ -15,7 +15,6 @@ Avalonia string localization support.
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
-        <!-- Add namespace -->
         xmlns:l="using:Jeek.Avalonia.Localization"
 
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
