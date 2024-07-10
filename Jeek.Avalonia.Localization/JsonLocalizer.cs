@@ -29,6 +29,7 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer, I
     public void Reload()
     {
         _languageStrings = null;
+        _languages.Clear();
 
         if (!Directory.Exists(_languageJsonDirectory))
             throw new FileNotFoundException(_languageJsonDirectory);

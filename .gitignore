@@ -1,6 +1,7 @@
-/.idea
-/.vs
-/obj
-/*.user
-/bin
+.idea/
+.vs/
+obj/
+**/bin/*.*
+**/bin/runtimes/
+*.user
 /global.json
