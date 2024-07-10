@@ -2,17 +2,14 @@
 
 namespace Jeek.Avalonia.Localization;
 
-public class TabLocalizer : ILocalizer
+public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
 {
-    public TabLocalizer(string tabFilePathPath = "")
-    {
-        if (tabFilePathPath != "" && File.Exists(tabFilePathPath))
-            _tabFilePath = tabFilePathPath;
-    }
+    private readonly string _tabFilePath =
+        tabFilePath != ""
+            ? tabFilePath
+            : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Languages.tab");
 
     private readonly Dictionary<string, string[]> _languageStrings = [];
-
-    private readonly string _tabFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Languages.tab");
 
     private bool _hasLoaded;
 
@@ -75,7 +72,7 @@ public class TabLocalizer : ILocalizer
 
             _language = value;
 
-            Invalidate();
+            RefreshUI();
         }
     }
 
@@ -84,16 +81,9 @@ public class TabLocalizer : ILocalizer
         if (!_hasLoaded)
             Reload();
 
-        if (_languageStrings.TryGetValue(key, out var res))
-            return res[_currentLanguageIndex].Replace("\\n", "\n");
+        if (_languageStrings.TryGetValue(key, out var langStrings))
+            return langStrings[_currentLanguageIndex].Replace("\\n", "\n");
 
         return $"{Language}:{key}";
-    }
-
-    public event EventHandler? LanguageChanged;
-
-    public void Invalidate()
-    {
-        LanguageChanged?.Invoke(null, EventArgs.Empty);
     }
 }

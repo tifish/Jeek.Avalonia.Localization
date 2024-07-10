@@ -1,10 +1,8 @@
-﻿using System.Text;
-
-namespace Jeek.Avalonia.Localization;
+﻿namespace Jeek.Avalonia.Localization;
 
 public static class Localizer
 {
-    private static ILocalizer _localizer = new TabLocalizer();
+    private static ILocalizer _localizer = new JsonLocalizer();
 
     public static void SetLocalizer(ILocalizer localizer)
     {
@@ -16,10 +14,7 @@ public static class Localizer
     public static string Language
     {
         get => _localizer.Language;
-        set
-        {
-            _localizer.Language = value;
-        }
+        set => _localizer.Language = value;
     }
 
     public static string Get(string key)
