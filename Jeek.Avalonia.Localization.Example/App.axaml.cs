@@ -14,8 +14,12 @@ namespace Jeek.Avalonia.Localization.Example
 
         public override void OnFrameworkInitializationCompleted()
         {
-            // Set default language
-            Localizer.Language = CultureInfo.CurrentCulture.Name;
+            // Set the localizer type, default to JsonLocalizer
+            // Localizer.SetLocalizer(new JsonLocalizer());
+            // Localizer.SetLocalizer(new TabLocalizer());
+
+            // Set language, default to en-US
+            // Localizer.Language = "en-US";
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

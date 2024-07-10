@@ -2,31 +2,16 @@
 
 namespace Jeek.Avalonia.Localization;
 
-public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer, ILocalizer
+public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer
 {
-    private Dictionary<string, string>? _languageStrings;
-
     private readonly string _languageJsonDirectory =
         languageJsonDirectory != ""
             ? languageJsonDirectory
             : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Languages");
 
-    private bool _hasLoaded;
+    private Dictionary<string, string>? _languageStrings;
 
-    private readonly List<string> _languages = [];
-
-    public List<string> Languages
-    {
-        get
-        {
-            if (!_hasLoaded)
-                Reload();
-
-            return _languages;
-        }
-    }
-
-    public void Reload()
+    public override void Reload()
     {
         _languageStrings = null;
         _languages.Clear();
@@ -53,22 +38,16 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer, I
         _hasLoaded = true;
     }
 
-    private string _language = "";
-
-    public string Language
+    protected override void SetLanguage(string language)
     {
-        get => _language;
-        set
-        {
-            _language = value;
+        _language = language;
 
-            Reload();
+        Reload();
 
-            RefreshUI();
-        }
+        RefreshUI();
     }
 
-    public string Get(string key)
+    public override string Get(string key)
     {
         if (!_hasLoaded)
             Reload();

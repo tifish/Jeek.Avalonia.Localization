@@ -11,22 +11,7 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
 
     private readonly Dictionary<string, string[]> _languageStrings = [];
 
-    private bool _hasLoaded;
-
-    private readonly List<string> _languages = [];
-
-    public List<string> Languages
-    {
-        get
-        {
-            if (!_hasLoaded)
-                Reload();
-
-            return _languages;
-        }
-    }
-
-    public void Reload()
+    public override void Reload()
     {
         _languageStrings.Clear();
 
@@ -51,42 +36,39 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
             line = reader.ReadLine();
         }
 
-        _currentLanguageIndex = _languages.IndexOf(_language);
-        if (_currentLanguageIndex == -1)
-        {
-            _currentLanguageIndex = _languages.IndexOf(DefaultLanguage);
-            if (_currentLanguageIndex == -1)
-                throw new KeyNotFoundException(_language);
-
-            _language = DefaultLanguage;
-        }
+        UpdateLanguageIndex();
 
         _hasLoaded = true;
     }
 
     private int _currentLanguageIndex = -1;
 
-    private string _language = "";
-
-    public string Language
+    private void UpdateLanguageIndex()
     {
-        get => _language;
-        set
-        {
-            if (_hasLoaded)
-                Reload();
+        _currentLanguageIndex = _languages.IndexOf(_language);
+        if (_currentLanguageIndex != -1)
+            return;
 
-            _currentLanguageIndex = Languages.IndexOf(value);
-            if (_currentLanguageIndex == -1)
-                throw new KeyNotFoundException();
+        _currentLanguageIndex = _languages.IndexOf(DefaultLanguage);
+        if (_currentLanguageIndex == -1)
+            throw new KeyNotFoundException(_language);
 
-            _language = value;
-
-            RefreshUI();
-        }
+        _language = DefaultLanguage;
     }
 
-    public string Get(string key)
+    protected override void SetLanguage(string language)
+    {
+        _language = language;
+
+        if (_hasLoaded)
+            Reload();
+        else
+            UpdateLanguageIndex();
+
+        RefreshUI();
+    }
+
+    public override string Get(string key)
     {
         if (!_hasLoaded)
             Reload();
