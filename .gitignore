@@ -1,9 +1,5 @@
 .idea/
 .vs/
 obj/
-**/bin/Jeek.Avalonia.Localization.*
-**/bin/Jeek.Avalonia.Localization.Example.*
-**/bin/*.dll
-**/bin/runtimes/
 *.user
 /global.json

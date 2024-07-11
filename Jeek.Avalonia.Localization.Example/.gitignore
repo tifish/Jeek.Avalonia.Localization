@@ -1,0 +1,5 @@
+/bin/Jeek.Avalonia.Localization.Example.*
+/bin/*.dll
+/bin/*.pdb
+/bin/runtimes/
+/bin/zh-CN/

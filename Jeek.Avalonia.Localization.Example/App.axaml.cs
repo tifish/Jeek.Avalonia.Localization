@@ -17,6 +17,7 @@ namespace Jeek.Avalonia.Localization.Example
             // Set the localizer type, default to JsonLocalizer
             // Localizer.SetLocalizer(new JsonLocalizer());
             // Localizer.SetLocalizer(new TabLocalizer());
+            Localizer.SetLocalizer(new ResXLocalizer());
 
             // Set language, default to en-US
             // Localizer.Language = "en-US";

@@ -1,25 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-		<ApplicationManifest>app.manifest</ApplicationManifest>
-		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-		<OutDir>bin</OutDir>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <OutDir>bin</OutDir>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Avalonia" Version="11.1.0-rc2" />
-		<PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc2" />
-		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc2" />
-		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc2" />
-		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-rc2" />
-		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.1.0-rc2"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc2"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc2"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc2"/>
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-rc2"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectCapability Include="Avalonia"/>
+        <TrimmerRootAssembly Include="Avalonia.Themes.Fluent"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\Jeek.Avalonia.Localization\Jeek.Avalonia.Localization.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Assets\Resources.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Assets\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Jeek.Avalonia.Localization\Jeek.Avalonia.Localization.csproj"/>
+    </ItemGroup>
 </Project>
