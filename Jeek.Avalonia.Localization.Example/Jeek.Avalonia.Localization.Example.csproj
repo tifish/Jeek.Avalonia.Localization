@@ -20,15 +20,6 @@
     </ItemGroup>
     
     <ItemGroup>
-        <ProjectCapability Include="Avalonia"/>
-        <TrimmerRootAssembly Include="Avalonia.Themes.Fluent"/>
-    </ItemGroup>
-    
-    <ItemGroup>
-        <AvaloniaResource Include="Assets\**"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <EmbeddedResource Update="Assets\Resources.resx">
             <Generator>PublicResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
