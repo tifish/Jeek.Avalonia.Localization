@@ -7,15 +7,18 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Jeek.Avalonia.Localization.Example.MainWindow"
         x:DataType="local:MainViewModel"
+        Width="800" Height="450"
         Title="Jeek.Avalonia.Localization.Example">
 
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
 
-    <StackPanel>
-        <Label Content="{l:Localize Welcome}" />
+    <StackPanel HorizontalAlignment="Center" Spacing="10" Margin="20">
         <ComboBox ItemsSource="{x:Static l:Localizer.Languages}"
                   SelectedItem="{Binding Language}" />
+        <Label Content="{l:Localize Welcome}" />
+        <Button Content="{l:Localize ClickMe}" Command="{Binding WelcomeCommand}" />
+        <Label Content="{Binding WelcomeMessage}" />
     </StackPanel>
 </Window>

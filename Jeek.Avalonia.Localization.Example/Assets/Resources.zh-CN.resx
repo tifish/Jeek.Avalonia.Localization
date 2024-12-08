@@ -120,4 +120,7 @@
   <data name="Welcome" xml:space="preserve">
     <value>欢迎使用 Avalonia！</value>
   </data>
+  <data name="ClickMe" xml:space="preserve">
+    <value>点击我！</value>
+  </data>
 </root>

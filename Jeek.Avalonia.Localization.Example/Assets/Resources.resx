@@ -120,4 +120,7 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to Avalonia!</value>
   </data>
+  <data name="ClickMe" xml:space="preserve">
+    <value>Click me!</value>
+  </data>
 </root>
