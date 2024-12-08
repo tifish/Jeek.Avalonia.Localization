@@ -4,7 +4,7 @@ namespace Jeek.Avalonia.Localization;
 
 public abstract class BaseLocalizer : ILocalizer
 {
-    public string DefaultLanguage { get; set; } = "en-US";
+    public string FallbackLanguage { get; set; } = "en-US";
 
     protected readonly List<string> _languages = [];
 

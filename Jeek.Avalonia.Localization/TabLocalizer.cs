@@ -49,11 +49,11 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
         if (_currentLanguageIndex != -1)
             return;
 
-        _currentLanguageIndex = _languages.IndexOf(DefaultLanguage);
+        _currentLanguageIndex = _languages.IndexOf(FallbackLanguage);
         if (_currentLanguageIndex == -1)
             throw new KeyNotFoundException(_language);
 
-        _language = DefaultLanguage;
+        _language = FallbackLanguage;
     }
 
     protected override void SetLanguage(string language)

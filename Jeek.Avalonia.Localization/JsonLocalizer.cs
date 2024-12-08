@@ -26,7 +26,7 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer
         }
 
         if (!_languages.Contains(_language))
-            _language = DefaultLanguage;
+            _language = FallbackLanguage;
 
         var languageFile = Path.Combine(_languageJsonDirectory, _language + ".json");
         if (!File.Exists(languageFile))
