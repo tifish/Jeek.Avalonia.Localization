@@ -1,4 +1,5 @@
 {
     "Welcome": "Welcome to Avalonia!",
-    "ClickMe": "Click me!"
+    "ClickMe": "Click me!",
+    "DefaultFontName": "Segoe UI"
 }

@@ -1,4 +1,5 @@
 {
     "Welcome": "欢迎使用 Avalonia！",
-    "ClickMe": "点击我！"
+    "ClickMe": "点击我！",
+    "DefaultFontName": "微软雅黑"
 }

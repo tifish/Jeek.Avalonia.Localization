@@ -69,6 +69,15 @@ namespace Jeek.Avalonia.Localization.Example.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Segoe UI.
+        /// </summary>
+        public static string DefaultFontName {
+            get {
+                return ResourceManager.GetString("DefaultFontName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to Avalonia!.
         /// </summary>
         public static string Welcome {

@@ -123,4 +123,7 @@
   <data name="ClickMe" xml:space="preserve">
     <value>Click me!</value>
   </data>
+  <data name="DefaultFontName" xml:space="preserve">
+    <value>Segoe UI</value>
+  </data>
 </root>

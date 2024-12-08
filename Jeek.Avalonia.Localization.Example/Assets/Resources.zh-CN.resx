@@ -123,4 +123,7 @@
   <data name="ClickMe" xml:space="preserve">
     <value>点击我！</value>
   </data>
+  <data name="DefaultFontName" xml:space="preserve">
+    <value>微软雅黑</value>
+  </data>
 </root>
