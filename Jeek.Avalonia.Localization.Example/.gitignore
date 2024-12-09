@@ -2,4 +2,4 @@
 /bin/*.dll
 /bin/*.pdb
 /bin/runtimes/
-/bin/zh-CN/
+/bin/zh/

@@ -126,4 +126,10 @@
   <data name="DefaultFontName" xml:space="preserve">
     <value>Segoe UI</value>
   </data>
+  <data name="zh" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>English</value>
+  </data>
 </root>

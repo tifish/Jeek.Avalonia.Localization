@@ -15,8 +15,8 @@
     </Window.DataContext>
 
     <StackPanel HorizontalAlignment="Center" Spacing="10" Margin="20">
-        <ComboBox ItemsSource="{x:Static l:Localizer.Languages}"
-                  SelectedItem="{Binding Language}" />
+        <ComboBox ItemsSource="{x:Static l:Localizer.DisplayLanguages}"
+                  SelectedIndex="{Binding LanguageIndex}" />
         <Label Content="{l:Localize Welcome}" />
         <Button Content="{l:Localize ClickMe}" Command="{Binding WelcomeCommand}" />
         <Label Content="{Binding WelcomeMessage}" />

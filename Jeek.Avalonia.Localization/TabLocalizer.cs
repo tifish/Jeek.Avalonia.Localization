@@ -36,36 +36,24 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
             line = reader.ReadLine();
         }
 
-        UpdateLanguageIndex();
+        ValidateLanguage();
 
         _hasLoaded = true;
+
+        UpdateDisplayLanguages();
     }
 
-    private int _currentLanguageIndex = -1;
-
-    private void UpdateLanguageIndex()
+    protected override void OnLanguageChanged()
     {
-        _currentLanguageIndex = _languages.IndexOf(_language);
-        if (_currentLanguageIndex != -1)
-            return;
-
-        _currentLanguageIndex = _languages.IndexOf(FallbackLanguage);
-        if (_currentLanguageIndex == -1)
-            throw new KeyNotFoundException(_language);
-
-        _language = FallbackLanguage;
-    }
-
-    protected override void SetLanguage(string language)
-    {
-        _language = language;
-
         if (!_hasLoaded)
+        {
             Reload();
+        }
         else
-            UpdateLanguageIndex();
-
-        RefreshUI();
+        {
+            ValidateLanguage();
+            UpdateDisplayLanguages();
+        }
     }
 
     public override string Get(string key)
@@ -74,7 +62,7 @@ public class TabLocalizer(string tabFilePath = "") : BaseLocalizer, ILocalizer
             Reload();
 
         if (_languageStrings.TryGetValue(key, out var langStrings))
-            return langStrings[_currentLanguageIndex].Replace("\\n", "\n");
+            return langStrings[LanguageIndex].Replace("\\n", "\n");
 
         return $"{Language}:{key}";
     }

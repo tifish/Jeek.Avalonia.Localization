@@ -9,21 +9,22 @@ public class ResXLocalizer : BaseLocalizer
     {
         if (_languages.Count == 0)
         {
-            _languages.Add("eu-US");
-            _languages.Add("zh-CN");
-            _hasLoaded = true;
+            _languages.Add("en");
+            _languages.Add("zh");
         }
 
+        ValidateLanguage();
+
         Resources.Culture = new CultureInfo(_language);
+
+        _hasLoaded = true;
+
+        UpdateDisplayLanguages();
     }
 
-    protected override void SetLanguage(string language)
+    protected override void OnLanguageChanged()
     {
-        _language = language;
-
         Reload();
-
-        RefreshUI();
     }
 
     public override string Get(string key)

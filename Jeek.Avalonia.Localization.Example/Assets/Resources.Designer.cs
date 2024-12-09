@@ -78,11 +78,29 @@ namespace Jeek.Avalonia.Localization.Example.Assets {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string en {
+            get {
+                return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to Avalonia!.
         /// </summary>
         public static string Welcome {
             get {
                 return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chinese.
+        /// </summary>
+        public static string zh {
+            get {
+                return ResourceManager.GetString("zh", resourceCulture);
             }
         }
     }

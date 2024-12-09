@@ -6,11 +6,11 @@ namespace Jeek.Avalonia.Localization.Example;
 public partial class MainViewModel : ObservableObject
 {
     [ObservableProperty]
-    private string _language = Localizer.Language;
+    private int _languageIndex = Localizer.LanguageIndex;
 
-    partial void OnLanguageChanged(string value)
+    partial void OnLanguageIndexChanged(int value)
     {
-        Localizer.Language = value;
+        Localizer.LanguageIndex = value;
     }
 
     [ObservableProperty]

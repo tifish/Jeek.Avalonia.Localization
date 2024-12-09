@@ -25,8 +25,7 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer
             _languages.Add(language);
         }
 
-        if (!_languages.Contains(_language))
-            _language = FallbackLanguage;
+        ValidateLanguage();
 
         var languageFile = Path.Combine(_languageJsonDirectory, _language + ".json");
         if (!File.Exists(languageFile))
@@ -36,15 +35,13 @@ public class JsonLocalizer(string languageJsonDirectory = "") : BaseLocalizer
         _languageStrings = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
 
         _hasLoaded = true;
+
+        UpdateDisplayLanguages();
     }
 
-    protected override void SetLanguage(string language)
+    protected override void OnLanguageChanged()
     {
-        _language = language;
-
         Reload();
-
-        RefreshUI();
     }
 
     public override string Get(string key)
