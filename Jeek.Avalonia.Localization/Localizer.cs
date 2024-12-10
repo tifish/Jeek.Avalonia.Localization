@@ -4,7 +4,7 @@ namespace Jeek.Avalonia.Localization;
 
 public static class Localizer
 {
-    private static ILocalizer _localizer = new JsonLocalizer();
+    private static ILocalizer _localizer = new TestLocalizer();
 
     public static void SetLocalizer(ILocalizer localizer)
     {
