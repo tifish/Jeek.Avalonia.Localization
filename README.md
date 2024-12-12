@@ -7,6 +7,20 @@ Avalonia string localization support.
 
 ## Usage
 
+- Json language file `Languages\en.json`:
+
+```json
+{
+    "Welcome": "Welcome to Avalonia!"
+}
+```
+
+- Load language files:
+
+```c#
+Localizer.SetLocalizer(new JsonLocalizer());
+```
+
 - Use localized string in .axaml: 
 
 ```xaml
@@ -29,18 +43,10 @@ Avalonia string localization support.
 </Window>
 ```
 
-- Json language file `Languages\en-US.json`:
-
-```json
-{
-    "Welcome": "Welcome to Avalonia!"
-}
-```
-
 - Switch language:
 
 ```c#
-Localizer.Language = "en-US";
+Localizer.Language = "en";
 ```
 
 - Get localized string in code:
