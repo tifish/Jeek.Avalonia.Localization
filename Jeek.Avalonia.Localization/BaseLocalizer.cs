@@ -40,7 +40,7 @@ public abstract class BaseLocalizer : ILocalizer
 
             OnLanguageChanged();
 
-            RefreshUI();
+            FireLanguageChanged();
         }
     }
 
@@ -103,8 +103,8 @@ public abstract class BaseLocalizer : ILocalizer
 
     public event EventHandler? LanguageChanged;
 
-    // Refresh UI after language changed
-    public void RefreshUI()
+    // Fire language changed
+    public void FireLanguageChanged()
     {
         LanguageChanged?.Invoke(null, EventArgs.Empty);
     }
