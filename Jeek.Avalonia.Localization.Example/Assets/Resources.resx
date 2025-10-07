@@ -132,4 +132,7 @@
   <data name="en" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="WelcomeName" xml:space="preserve">
+    <value>Welcome {0} {1}</value>
+  </data>
 </root>
