@@ -19,6 +19,7 @@
                   SelectedIndex="{Binding LanguageIndex}" />
         <Label Content="{l:Localize Welcome}" />
         <Label Content="{Binding WelcomeName}"/>
+        <Label Content="{Binding WelcomeUser}"/>
         <Button Content="{l:Localize ClickMe}" Command="{Binding WelcomeCommand}" />
         <Label Content="{Binding WelcomeMessage}" />
     </StackPanel>

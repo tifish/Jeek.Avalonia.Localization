@@ -135,4 +135,7 @@
   <data name="WelcomeName" xml:space="preserve">
     <value>Welcome {0} {1}</value>
   </data>
+  <data name="WelcomeUser" xml:space="preserve">
+    <value>Welcome {0} {1} from {2}</value>
+  </data>
 </root>

@@ -80,5 +80,11 @@ namespace Jeek.Avalonia.Localization.Example.Assets {
                 return ResourceManager.GetString("WelcomeName", resourceCulture);
             }
         }
+        
+        public static string WelcomeUser {
+            get {
+                return ResourceManager.GetString("WelcomeUser", resourceCulture);
+            }
+        }
     }
 }
