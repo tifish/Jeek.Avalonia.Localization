@@ -1,4 +1,5 @@
 # Jeek.Avalonia.Localization
+
 Avalonia string localization support.
 
 - Switch language at runtime.
@@ -11,7 +12,7 @@ Avalonia string localization support.
 
 ```json
 {
-    "Welcome": "Welcome to Avalonia!"
+  "Welcome": "Welcome to Avalonia!"
 }
 ```
 
@@ -21,24 +22,26 @@ Avalonia string localization support.
 Localizer.SetLocalizer(new JsonLocalizer());
 ```
 
-- Use localized string in .axaml: 
+- Use localized string in .axaml:
 
 ```xaml
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
-        xmlns:l="using:Jeek.Avalonia.Localization"
-
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Jeek.Avalonia.Localization.Example.MainWindow"
-        Title="Jeek.Avalonia.Localization.Example">
+<Window
+  xmlns="https://github.com/avaloniaui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:l="using:Jeek.Avalonia.Localization"
+  mc:Ignorable="d"
+  d:DesignWidth="800"
+  d:DesignHeight="450"
+  x:Class="Jeek.Avalonia.Localization.Example.MainWindow"
+  Title="Jeek.Avalonia.Localization.Example"
+>
     <StackPanel>
-        
+
         <!-- Get the string with key Welcome -->
         <Label Content="{l:Localize Welcome}" />
-        
+
     </StackPanel>
 </Window>
 ```
