@@ -16,9 +16,18 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private string _welcomeMessage = "";
 
+    [ObservableProperty]
+    private string _titleKey = "Welcome";
+
     [RelayCommand]
     private void Welcome()
     {
         WelcomeMessage = Localizer.Get("Welcome");
+    }
+
+    [RelayCommand]
+    private void ToggleTitleKey()
+    {
+        TitleKey = TitleKey == "Welcome" ? "ClickMe" : "Welcome";
     }
 }

@@ -18,6 +18,8 @@
         <ComboBox ItemsSource="{x:Static l:Localizer.DisplayLanguages}"
                   SelectedIndex="{Binding LanguageIndex}" />
         <Label Content="{l:Localize Welcome}" />
+        <Label Content="{l:Localize {Binding TitleKey}}" />
+        <Button Content="{Binding TitleKey}" Command="{Binding ToggleTitleKeyCommand}" />
         <Button Content="{l:Localize ClickMe}" Command="{Binding WelcomeCommand}" />
         <Label Content="{Binding WelcomeMessage}" />
     </StackPanel>
