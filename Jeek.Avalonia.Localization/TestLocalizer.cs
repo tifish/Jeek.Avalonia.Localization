@@ -1,6 +1,6 @@
 namespace Jeek.Avalonia.Localization;
 
-public class TestLocalizer: BaseLocalizer
+public class TestLocalizer : BaseLocalizer
 {
     protected override void OnLanguageChanged()
     {

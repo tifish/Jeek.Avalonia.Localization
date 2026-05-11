@@ -28,7 +28,9 @@ class FastObservableCollection<T> : ObservableCollection<T>, IFastObservableColl
 
         _suppressChangedEvent = false;
 
-        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        OnCollectionChanged(
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset)
+        );
         OnPropertyChanged(new PropertyChangedEventArgs(nameof(Count)));
     }
 
@@ -42,7 +44,9 @@ class FastObservableCollection<T> : ObservableCollection<T>, IFastObservableColl
 
         _suppressChangedEvent = false;
 
-        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        OnCollectionChanged(
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset)
+        );
         OnPropertyChanged(new PropertyChangedEventArgs(nameof(Count)));
     }
 
@@ -56,7 +60,9 @@ class FastObservableCollection<T> : ObservableCollection<T>, IFastObservableColl
 
         _suppressChangedEvent = false;
 
-        OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        OnCollectionChanged(
+            new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset)
+        );
         OnPropertyChanged(new PropertyChangedEventArgs(nameof(Count)));
     }
 

@@ -23,7 +23,8 @@ public abstract class BaseLocalizer : ILocalizer
     }
 
     // Display names of available languages in current language, e.g. ["English", "Chinese"]
-    public ObservableCollection<string> DisplayLanguages { get; } = new FastObservableCollection<string>();
+    public ObservableCollection<string> DisplayLanguages { get; } =
+        new FastObservableCollection<string>();
 
     protected string _language = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
