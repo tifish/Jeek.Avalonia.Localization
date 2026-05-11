@@ -13,12 +13,12 @@ public class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // Set the localizer type, default to TestLocalizer
+        // Set the localizer type. Default to TestLocalizer.
         // Localizer.SetLocalizer(new JsonLocalizer());
         // Localizer.SetLocalizer(new TabLocalizer());
         Localizer.SetLocalizer(new ResXLocalizer());
 
-        // Set language, default to en
+        // Set language. Default to system language.
         // Localizer.Language = "en";
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
